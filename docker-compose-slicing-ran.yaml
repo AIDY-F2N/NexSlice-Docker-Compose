@@ -1,0 +1,152 @@
+services:
+  gnb1:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: gnb1
+    volumes:
+      - ./conf:/config/demo
+    cap_add:
+      - SYS_NICE
+    command: nr-gnb -c demo/gnb1.yaml
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.152
+
+  ue1:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue1
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb1
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue.yaml
+    networks:
+            public_net:
+  ue2:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue2
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb1
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue2.yaml
+    networks:
+            public_net:
+  ue3:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue3
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb1
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue3.yaml
+    networks:
+            public_net:
+
+  gnb2:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: gnb2
+    volumes:
+      - ./conf:/config/demo
+    cap_add:
+      - SYS_NICE
+    command: nr-gnb -c demo/gnb2.yaml
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.153
+            public_net_access:
+                ipv4_address: 192.168.72.156
+  ue4:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue4
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb2
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue4.yaml
+    networks:
+            public_net:
+  ue5:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue5
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb2
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue5.yaml
+    networks:
+            public_net:
+  
+  gnb3:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: gnb3
+    volumes:
+      - ./conf:/config/demo
+    cap_add:
+      - SYS_NICE
+    command: nr-gnb -c demo/gnb3.yaml
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.154
+  ue6:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue6
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb3
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue6.yaml
+    networks:
+            public_net:
+  ue7:
+    image: shubhamtatvamasi/ueransim-demo:master
+    container_name: ue7
+    volumes:
+      - ./conf:/config/demo
+    depends_on:
+      - gnb3
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+    devices:
+      - /dev/net/tun
+    command: nr-ue -c demo/ue7.yaml
+    networks:
+            public_net:
+networks:
+    public_net:
+        external:
+            name: demo-oai-public-net
+    public_net_access:
+        external:
+            name: oai-public-access
+  
