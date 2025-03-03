@@ -39,20 +39,20 @@ uacAcc:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'oai.ipv4'
+    apn: 'default'
     slice:
-      sst: 130
-      sd: 130
+      sst: 128
+      sd: 128
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:
-  - sst: 130
-    sd: 130
+  - sst: 128
+    sd: 128
 
 # Default Configured NSSAI for this UE
 default-nssai:
-  - sst: 130
-    sd: 130
+  - sst: 128
+    sd: 128
 
 # Supported integrity algorithms by this UE
 integrity:

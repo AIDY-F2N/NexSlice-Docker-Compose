@@ -7,7 +7,7 @@ tac: 0xa000              # Tracking Area Code
 
 linkIp: 192.168.70.153   # gNB's local IP address for Radio Link Simulation (Usually same with local IP)
 ngapIp: 192.168.70.153   # gNB's local IP address for N2 Interface (Usually same with local IP)
-gtpIp:  192.168.72.156    # gNB's local IP address for N3 Interface (Usually same with local IP)
+gtpIp:  192.168.70.153    # gNB's local IP address for N3 Interface (Usually same with local IP)
 
 # List of AMF address information
 amfConfigs:

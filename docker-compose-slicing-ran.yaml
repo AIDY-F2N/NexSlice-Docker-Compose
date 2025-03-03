@@ -68,8 +68,6 @@ services:
     networks:
             public_net:
                 ipv4_address: 192.168.70.153
-            public_net_access:
-                ipv4_address: 192.168.72.156
   ue4:
     image: shubhamtatvamasi/ueransim-demo:master
     container_name: ue4
@@ -144,9 +142,9 @@ services:
             public_net:
 networks:
     public_net:
-        external:
-            name: demo-oai-public-net
+        name: demo-oai-public-net
+        external: true
     public_net_access:
-        external:
-            name: oai-public-access
+        name: oai-public-access
+        external: true
   
