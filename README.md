@@ -1,4 +1,4 @@
-# OAI 5G Core Network Slicing with Multiple Simulated gNBs and UEs using UERANSIM
+# OpenAirInterface 5G Standalone Core Network Deployment on Docker Compose – Slicing Scenario
 ![Lab Logo](fig/logo_aidy_f2n.png)
 ## Overview
 
