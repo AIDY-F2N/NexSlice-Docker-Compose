@@ -1,4 +1,4 @@
-# OpenAirInterface 5G Standalone Core Network Deployment on Docker Compose – Slicing Scenario
+# NexSlice on Docker Compose: Towards an Open and Reproducible Network Slicing Testbed for 5G and Beyond
 ![Lab Logo](fig/logo_aidy_f2n.png)
 ## Overview
 
