@@ -56,22 +56,21 @@ docker ps
 ### **Clone the Repository**
 
 ```bash
-git clone https://github.com/AIDY-F2N/OAI_CORE_SLICING.git
-cd OAI_CORE_SLICING
+git clone https://github.com/AIDY-F2N/NexSlice-Docker-Compose.git
+cd NexSlice-Docker-Compose
 ```
 
 ### **Deploy the 5G Core**
 
 ```bash
-docker compose -f docker-compose-slicing-core.yaml up -d
+docker compose -f 5g-core.yaml up -d
 ```
-![docker ps](fig/core-1.png)
-![docker ps](fig/core-2.png)
+![docker ps](fig/core.png)
 
 #### **Verify Core Deployment**
 
 ```bash
-docker compose -f docker-compose-slicing-core.yaml ps -a
+docker compose -f 5g-core.yaml ps -a
 ```
 All containers should be in the **Up (healthy)** state.
 
@@ -81,14 +80,14 @@ All containers should be in the **Up (healthy)** state.
 ### **Deploy the 3 gNBs**
 
 ```bash
-docker compose -f docker-compose-slicing-ran.yaml up -d gnb1 gnb2 gnb3
+docker compose -f 5g-ran.yaml up -d gnb1 gnb2 gnb3
 ```
 ![docker ps](fig/gnbs.png)
 
 ### **Deploy All UEs**
 
 ```bash
-docker compose -f docker-compose-slicing-ran.yaml up -d ue1 ue2 ue3 ue4 ue5 ue6 ue7
+docker compose -f 5g-ran.yaml up -d ue1 ue2 ue3 ue4 ue5 ue6 ue7
 ```
 ![docker ps](fig/ues.png)
 
@@ -132,13 +131,13 @@ To **undeploy** the network functions, use the following commands:
 ### **Undeploy gNBs & UEs**
 
 ```bash
-docker compose -f docker-compose-slicing-ran.yaml down -t 0
+docker compose -f 5g-ran.yaml down -t 0
 ```
 
 ### **Undeploy 5G Core**
 
 ```bash
-docker compose -f docker-compose-slicing-core.yaml down -t 0
+docker compose -f 5g-core.yaml down -t 0
 ```
 ![docker ps](fig/undeploy.png)
 

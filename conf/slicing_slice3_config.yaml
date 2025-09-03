@@ -44,8 +44,8 @@ nfs:
 # anchor is set to re-use slice config in SMF
 snssais:
   - &slice3
-    sst: 130
-    sd: 000082 # in hex
+    sst: 3
+    sd: 000001 # in hex
 
 smf:
   support_features:
@@ -60,10 +60,10 @@ smf:
     sNssaiSmfInfoList:
       - sNssai: *slice3
         dnnSmfInfoList:
-          - dnn: "oai.ipv4"
+          - dnn: "oai3"
   local_subscription_infos:
     - single_nssai: *slice3
-      dnn: "oai.ipv4"
+      dnn: "oai3"
       qos_profile:
         5qi: 5
         session_ambr_ul: "100Mbps"
@@ -77,9 +77,9 @@ upf:
     sNssaiUpfInfoList:
       - sNssai: *slice3
         dnnUpfInfoList:
-          - dnn: "oai.ipv4"
+          - dnn: "oai3"
 ## DNN configuration
 dnns:
-  - dnn: "oai.ipv4"
+  - dnn: "oai3"
     pdu_session_type: "IPV4"
-    ipv4_subnet: "12.1.1.0/25"
+    ipv4_subnet: "12.1.3.0/24"

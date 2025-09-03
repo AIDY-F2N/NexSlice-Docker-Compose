@@ -101,25 +101,17 @@ amf:
       amf_region_id: 01
       amf_set_id: 001
       amf_pointer: 01
-    - mcc: 001
-      mnc: 01
-      amf_region_id: 01
-      amf_set_id: 001
-      amf_pointer: 01
   plmn_support_list:
     - mcc: 208
       mnc: 95
       tac: 0xa000
       nssai:
         - sst: 1
-        - sst: 1
           sd: 000001 # in hex
-        - sst: 222
-          sd: 00007B # in hex
-        - sst: 128
-          sd: 000080 # in hex
-        - sst: 130
-          sd: 000082 # in hex
+        - sst: 2
+          sd: 000001 # in hex
+        - sst: 3
+          sd: 000001 # in hex
   supported_integrity_algorithms:
     - "NIA1"
     - "NIA2"
