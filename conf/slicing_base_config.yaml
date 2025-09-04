@@ -101,6 +101,11 @@ amf:
       amf_region_id: 01
       amf_set_id: 001
       amf_pointer: 01
+    - mcc: 001
+      mnc: 01
+      amf_region_id: 01
+      amf_set_id: 001
+      amf_pointer: 01
   plmn_support_list:
     - mcc: 208
       mnc: 95
@@ -109,7 +114,7 @@ amf:
         - sst: 1
           sd: 000001 # in hex
         - sst: 2
-          sd: 000001 # in hex
+          sd: 000001
         - sst: 3
           sd: 000001 # in hex
   supported_integrity_algorithms:

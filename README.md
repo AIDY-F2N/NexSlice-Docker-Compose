@@ -124,6 +124,11 @@ docker exec [container_name] ping -c 4 8.8.8.8
 
 For simplicity, only one UE is tested here, but you can verify all UEs to ensure they are assigned to the correct slices.
 
+
+## Monitoring
+
+## Tests
+
 ## **Cleanup**
 
 To **undeploy** the network functions, use the following commands:
