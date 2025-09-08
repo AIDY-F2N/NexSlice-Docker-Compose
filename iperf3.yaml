@@ -1,0 +1,16 @@
+services:
+    iperf3-server:
+        image: maitaba/iperf3:latest
+        container_name: iperf3-server
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.163
+
+networks:
+    public_net:
+        name: demo-oai-public-net
+        external: true
+    public_net_access:
+        name: oai-public-access
+        external: true
+  

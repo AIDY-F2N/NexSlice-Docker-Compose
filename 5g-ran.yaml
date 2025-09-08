@@ -23,7 +23,7 @@ services:
       - SYS_NICE
     devices:
       - /dev/net/tun
-    command: nr-ue -c demo/ue.yaml
+    command: nr-ue -c demo/ue1.yaml
     networks:
             public_net:
   ue2:

@@ -1,0 +1,51 @@
+services:
+    cadvisor:
+        image: gcr.io/cadvisor/cadvisor:latest
+        container_name: cadvisor
+        ports:
+            - "8080:8080"
+        volumes:
+            - /:/rootfs:ro
+            - /var/run:/var/run:ro
+            - /sys:/sys:ro
+            - /var/lib/docker/:/var/lib/docker:ro
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.160
+
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        ports:
+            - "9090:9090"
+        volumes:
+            - ./conf/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.161
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        environment:
+            - GF_SECURITY_ADMIN_USER=admin
+            - GF_SECURITY_ADMIN_PASSWORD=admin
+        ports:
+            - "3000:3000"
+        volumes:
+            - grafana-data:/var/lib/grafana
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.162
+
+networks:
+    public_net:
+        name: demo-oai-public-net
+        external: true
+    public_net_access:
+        name: oai-public-access
+        external: true
+
+
+volumes:
+  grafana-data:
