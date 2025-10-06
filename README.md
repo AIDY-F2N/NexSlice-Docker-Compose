@@ -1,5 +1,9 @@
 # NexSlice on Docker Compose: Towards an Open and Reproducible Network Slicing Testbed for 5G and Beyond
 ![Lab Logo](fig/logo_aidy_f2n.png)
+## Citation
+This work has been accepted as a demo paper at The 27th International Conference on Modeling, Analysis and Simulation of Wireless and Mobile Systems (MSWiM 2025), Barcelona, Spain, October 27th – 31st, 2025
+
+If you use NexSlice in your research or experiments, please cite our paper once it is published in IEEE (The official DOI and link will be added here upon publication).
 
 ## Introduction to 5G and Network Slicing
 
@@ -17,6 +21,8 @@ This is achieved by combining **Virtualized Network Functions (VNFs)** such as:
 - **AMF (Access and Mobility Management Function)** – mobility & registration  
 - **SMF (Session Management Function)** – session establishment and routing  
 - **UPF (User Plane Function)** – data forwarding in the user plane  
+
+
 
 ### Network Slice Identification
 
@@ -62,7 +68,7 @@ In this repository, the slicing configuration follows the setup illustrated belo
 | **Kubernetes**     | Production-grade orchestration for clusters of containers, providing **scalability and resilience**.|
 
 In this repository, we use **Docker Compose** for simplicity and reproducibility.  
-NexSlice is also available on **Kubernetes** for larger-scale experiments:  https://github.com/AIDY-F2N/NexSlice  
+NexSlice is available on both standard Kubernetes (k8s) and lightweight k3s clusters, supporting scalable and reproducible 5G slicing experiments.:  https://github.com/AIDY-F2N/NexSlice  
 
 ### Docker and Docker Compose commands reminders
 
@@ -89,7 +95,7 @@ docker compose -f file.yaml up -d
 docker compose -f file.yaml up -d [serviceX]
 ```
 
-⚠️ Note: docker-compose (with a dash) is the older command. The modern syntax is docker compose.
+⚠️ Note: "docker-compose" (with a dash) is the older command. The modern syntax is "docker compose".
 
 ## Prerequisites
 
@@ -243,9 +249,9 @@ docker logs [ue_name]
 
 The traceroute output confirms that:
 
-- UEs in Slice 1 are routed via UPF-B,
-- UEs in Slice 2 are routed via UPF-R,
-- UEs in Slice 3 are routed via UPF-Y.
+- UEs in Slice 1 are routed via upf-slice1,
+- UEs in Slice 2 are routed via upf-slice2,
+- UEs in Slice 3 are routed via upf-slice3.
 
 This demonstrates that traffic is isolated per slice, validating the slicing mechanism in our 5G deployment.
 
